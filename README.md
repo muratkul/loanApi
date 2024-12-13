@@ -1,6 +1,6 @@
 # README
 
-The Project runs with Java 8 Spring Boot 2.3 and local file h2 database
+The Project runs with Java 17 Spring Boot 3.4 and local file h2 database
 
 Default server address is:
 
@@ -9,6 +9,10 @@ Default server address is:
 Default DB url is:
 
 `jdbc:h2:file:./h2/loan;AUTO_SERVER=TRUE`
+
+db-username: sa
+
+db-password: password
 
 The user need to log in through `/api/auth/signin` link. Postman collection is provided as attachment. (In project as loanApi.postman_collection.json)
 
