@@ -1,7 +1,7 @@
 package com.loanapi.payload;
 
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 
 public class LoanRequest {
