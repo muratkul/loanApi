@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "82deedd3-6a14-4f1a-80d6-13959968cb98",
+		"name": "loanApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11137713"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTczNDAzNTQzOCwiZXhwIjoxNzQyNjc1NDM4fQ.CRA7dMie7JyR9SuVkMWG-PH-1x3BW1Tm3ZboFGQ61eNKCEmxXL7GUMlndj5SC2RVy5NbfKK8U_DiGG9xmZ1g7w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"customer2\",\n    \"email\": \"customer2@loanapi.com\",\n    \"password\": \"customer2\",\n    \"role\": [\"customer\"],\n    \"name\":\"İkinci\",\n    \"surname\":\"Müşteri\",\n    \"creditLimit\": 20000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "tr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "tr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "createLoan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTczNDAzNTQzOCwiZXhwIjoxNzQyNjc1NDM4fQ.CRA7dMie7JyR9SuVkMWG-PH-1x3BW1Tm3ZboFGQ61eNKCEmxXL7GUMlndj5SC2RVy5NbfKK8U_DiGG9xmZ1g7w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"customer\",\n    \"installments\": 6,\n    \"interestRate\": 0.4,\n    \"amount\": 10000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/loans/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payLoan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjdXN0b21lciIsImlhdCI6MTczMzk5NDkxMiwiZXhwIjoxNzQyNjM0OTEyfQ.KL_49DnkYA-jVJZrE2tkAKU6d0N0PnFTR9bI90WucfcNtlXlr_At5dQI-CBS8u_fsgJ-athQ_UI4-B1dVrC_Dw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"customer\",\n    \"installments\": 6,\n    \"interestRate\": 0.02,\n    \"amount\": 10000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/loans/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLoans",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjdXN0b21lciIsImlhdCI6MTczNDA3NDQ5OCwiZXhwIjoxNzQyNzE0NDk4fQ.IylfK9Sfgk4Ssdezo5gpMol4xnLckOlUQuKOHXQkWgiKwEQCPaxSnhBMcwLPbMv3BqNrKPdgGxQDQI3OhUK_xw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/loans/get",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllLoans",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTczNDAzNTQzOCwiZXhwIjoxNzQyNjc1NDM4fQ.CRA7dMie7JyR9SuVkMWG-PH-1x3BW1Tm3ZboFGQ61eNKCEmxXL7GUMlndj5SC2RVy5NbfKK8U_DiGG9xmZ1g7w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/loans/getAll",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLoanInstallments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjdXN0b21lciIsImlhdCI6MTczNDA3NDQ5OCwiZXhwIjoxNzQyNzE0NDk4fQ.IylfK9Sfgk4Ssdezo5gpMol4xnLckOlUQuKOHXQkWgiKwEQCPaxSnhBMcwLPbMv3BqNrKPdgGxQDQI3OhUK_xw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/loans/getInstallments/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"getInstallments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
